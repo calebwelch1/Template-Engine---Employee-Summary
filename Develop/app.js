@@ -10,7 +10,28 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-
+class Employee {
+  constructor(name, id, email) {
+    this.name = name;
+    this.id = id;
+    this.email = email;
+  }
+  getName() {
+    return this.name;
+  }
+  getEmail() {
+    return this.email;
+  }
+  getID() {
+    return this.id;
+  }
+  getRole() {
+    return Employee;
+  }
+}
+class Manager extends Employee {}
+class Engineer extends Employee {}
+class Intern extends Employee {}
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
