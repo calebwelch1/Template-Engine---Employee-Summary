@@ -64,6 +64,58 @@ class Intern extends Employee {
     return "Intern";
   }
 }
+inquirer
+  .prompt([
+    {
+      name: "EmployeeType",
+      type: "list",
+      prompt: "What employee type would you like to create?",
+      choices: ["Manager", "Engineer", "Intern"],
+    },
+    {
+      name: "EmployeeName",
+      type: "input",
+      prompt: "What is the Employee's name?",
+    },
+    {
+      name: "EmployeeID",
+      type: "Input",
+      prompt: "What is the employee's ID?",
+    },
+    {
+      name: "EmployeeEmail",
+      type: "Input",
+      prompt: "What is the employee's email?",
+    },
+    {
+      name: "ManagerNum",
+      type: "Input",
+      prompt: "What is the Manager's room number?",
+      when: EmployeeType.val() === "Manager",
+    },
+    {
+      name: "EngineerGit",
+      type: "Input",
+      prompt: "What is the Engineer's github username?",
+      when: EmployeeType.val() === "Engineer",
+    },
+    {
+      name: "InternSchool",
+      type: "input",
+      prompt: "What is the Intern's School?",
+      when: EmployeeType.val() === "Intern",
+    },
+  ])
+  .then((answers) => {
+    // Use user feedback for... whatever!!
+  })
+  .catch((error) => {
+    if (error.isTtyError) {
+      // Prompt couldn't be rendered in the current environment
+    } else {
+      // Something else when wrong
+    }
+  });
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
