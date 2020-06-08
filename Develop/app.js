@@ -29,9 +29,41 @@ class Employee {
     return Employee;
   }
 }
-class Manager extends Employee {}
-class Engineer extends Employee {}
-class Intern extends Employee {}
+class Manager extends Employee {
+  // when we extend a class we want to pass the arguments from the original class as well as those unique to the extension
+  constructor(name, id, email, officeNumber) {
+    //here we'd usually have this.name=name this.id=id etc. However just using super(name,id) does the same thing!
+    super(name, id, email);
+    this.officeNumber = officeNumber;
+  }
+  getRole() {
+    return "Manager";
+  }
+}
+class Engineer extends Employee {
+  constructor(name, id, email, githubUN) {
+    super(name, id, email);
+    this.githubUN = githubUN;
+  }
+  getGitHub() {
+    return this.githubUN;
+  }
+  getRole() {
+    return "Engineer";
+  }
+}
+class Intern extends Employee {
+  constructor(name, id, email, school) {
+    super(name, id, email);
+    this.school = school;
+  }
+  getSchool() {
+    return this.school;
+  }
+  getRole() {
+    return "Intern";
+  }
+}
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
